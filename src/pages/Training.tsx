@@ -1,9 +1,10 @@
 
 import React from 'react';
-import { Shield, Lock, Wifi, Globe, Cpu, Server } from 'lucide-react';
+import { Shield, Lock, Wifi, Globe, Cpu, Server, PlayCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import { Button } from '@/components/ui/button';
 
 const Training = () => {
   const modules = [
@@ -15,7 +16,8 @@ const Training = () => {
       difficulty: 'Beginner',
       progress: 0,
       duration: '45 min',
-      category: 'Awareness'
+      category: 'Awareness',
+      color: 'from-blue-500 to-indigo-600'
     },
     {
       id: 2,
@@ -25,7 +27,8 @@ const Training = () => {
       difficulty: 'Beginner',
       progress: 25,
       duration: '30 min',
-      category: 'Basic'
+      category: 'Basic',
+      color: 'from-green-500 to-emerald-600'
     },
     {
       id: 3,
@@ -35,7 +38,8 @@ const Training = () => {
       difficulty: 'Intermediate',
       progress: 0,
       duration: '60 min',
-      category: 'Network'
+      category: 'Network',
+      color: 'from-orange-500 to-amber-600'
     },
     {
       id: 4,
@@ -45,7 +49,8 @@ const Training = () => {
       difficulty: 'Beginner',
       progress: 75,
       duration: '40 min',
-      category: 'Privacy'
+      category: 'Privacy',
+      color: 'from-purple-500 to-violet-600'
     },
     {
       id: 5,
@@ -55,7 +60,8 @@ const Training = () => {
       difficulty: 'Advanced',
       progress: 0,
       duration: '90 min',
-      category: 'Technical'
+      category: 'Technical',
+      color: 'from-red-500 to-rose-600'
     },
     {
       id: 6,
@@ -65,7 +71,8 @@ const Training = () => {
       difficulty: 'Intermediate',
       progress: 10,
       duration: '75 min',
-      category: 'Cloud'
+      category: 'Cloud',
+      color: 'from-cyan-500 to-blue-600'
     }
   ];
 
@@ -83,33 +90,63 @@ const Training = () => {
   };
 
   return (
-    <div className="container px-4 pb-20 pt-20">
-      <h1 className="section-title">Interactive Training</h1>
+    <div className="container px-4 pb-24 pt-24">
+      <h1 className="section-title">Training</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="glass-card p-5 rounded-2xl mb-6">
+        <div className="flex items-center space-x-4">
+          <div className="bg-accent/20 rounded-xl p-3">
+            <PlayCircle className="h-6 w-6 text-accent" />
+          </div>
+          <div className="flex-1">
+            <h3 className="font-medium">Continue Learning</h3>
+            <p className="text-sm text-muted-foreground">Password Security</p>
+            <Progress value={25} className="h-1.5 mt-2" />
+          </div>
+          <Button variant="ghost" size="sm" className="rounded-xl">
+            Resume
+          </Button>
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-1 gap-4">
         {modules.map((module) => (
-          <Card key={module.id} className="security-card overflow-hidden">
+          <Card key={module.id} className="glass-card overflow-hidden border-none">
             <CardContent className="p-0">
-              <div className="relative h-24 bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-                <module.icon className="h-12 w-12 text-white" />
+              <div className={`h-20 bg-gradient-to-r ${module.color} flex items-center`}>
+                <div className="ml-5 bg-white/20 backdrop-blur-sm rounded-xl p-3">
+                  <module.icon className="h-8 w-8 text-white" />
+                </div>
+                <div className="ml-4 text-white">
+                  <Badge className="bg-white/30 text-white border-none">{module.category}</Badge>
+                  <p className="text-xs mt-1">{module.duration}</p>
+                </div>
               </div>
               
-              <div className="p-4">
+              <div className="p-5">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-semibold">{module.title}</h3>
+                  <h3 className="font-semibold text-lg">{module.title}</h3>
                   <Badge className={getDifficultyColor(module.difficulty)}>
                     {module.difficulty}
                   </Badge>
                 </div>
                 
-                <p className="text-sm text-gray-600 mb-3">{module.description}</p>
+                <p className="text-sm text-gray-600 mb-4">{module.description}</p>
                 
-                <div className="flex justify-between text-xs text-gray-500 mb-1">
-                  <span>{module.duration}</span>
-                  <span>{module.progress > 0 ? `${module.progress}% Complete` : 'Not Started'}</span>
+                <div className="flex justify-between items-center">
+                  <div className="flex-1 mr-4">
+                    <div className="flex justify-between text-xs text-gray-500 mb-1">
+                      <span>{module.progress > 0 ? `${module.progress}% Complete` : 'Not Started'}</span>
+                    </div>
+                    <Progress value={module.progress} className="h-1.5" />
+                  </div>
+                  <Button 
+                    size="sm" 
+                    className={`rounded-xl ${module.progress > 0 ? 'bg-primary' : 'bg-accent'}`}
+                  >
+                    {module.progress > 0 ? 'Continue' : 'Start'}
+                  </Button>
                 </div>
-                
-                <Progress value={module.progress} className="h-2" />
               </div>
             </CardContent>
           </Card>

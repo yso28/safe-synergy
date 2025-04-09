@@ -13,6 +13,7 @@ import Forum from "./pages/Forum";
 import Resources from "./pages/Resources";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import { AnimatePresence } from "framer-motion";
 
 const queryClient = new QueryClient();
 
@@ -24,15 +25,17 @@ const App = () => (
       <BrowserRouter>
         <div className="min-h-screen bg-background">
           <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/training" element={<Training />} />
-            <Route path="/forum" element={<Forum />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/training" element={<Training />} />
+              <Route path="/forum" element={<Forum />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AnimatePresence>
           <BottomNavigation />
         </div>
       </BrowserRouter>

@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71% 4%;
 
-    --primary: 222 47% 31%;
+    --primary: 243 75% 59%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 196 83% 75%;
@@ -23,7 +23,7 @@
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 46.1%;
 
-    --accent: 243 75% 59%;
+    --accent: 222 47% 31%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,7 +33,7 @@
     --input: 220 13% 91%;
     --ring: 224 71% 4%;
 
-    --radius: 1rem;
+    --radius: 1.25rem;
   }
 
   * {
@@ -74,4 +74,30 @@
   .gradient-text {
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-bold;
   }
+  
+  /* New styles */
+  .menu-gradient {
+    @apply bg-gradient-to-br from-primary/10 to-accent/5;
+  }
+  
+  .icon-highlight {
+    @apply relative after:absolute after:inset-0 after:bg-primary/10 after:rounded-full after:transform after:scale-0 after:transition-transform hover:after:scale-150 after:opacity-0 hover:after:opacity-100;
+  }
+  
+  .floating-card {
+    @apply relative hover:before:opacity-100 before:opacity-0 before:absolute before:-inset-1 before:bg-gradient-to-r before:from-primary/20 before:via-secondary/20 before:to-accent/20 before:blur-xl before:transition-opacity before:-z-10 transform hover:translate-y-[-4px] transition-all duration-300;
+  }
+  
+  .glass-nav {
+    @apply backdrop-blur-xl bg-white/70 border border-white/30 shadow-lg;
+  }
+  
+  .active-nav-indicator {
+    @apply absolute bg-gradient-to-r from-primary to-accent rounded-full h-1 w-12 transition-all duration-300 ease-in-out;
+  }
+  
+  .pulsate {
+    @apply animate-[pulse_3s_cubic-bezier(0.4,0,0.6,1)_infinite];
+  }
 }
+

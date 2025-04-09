@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect } from 'react';
-import { Home, Calendar, BookOpen, MessageSquare, User, FileText } from 'lucide-react';
+import React from 'react';
+import { Home, Calendar, BookOpen, MessageSquare, FileText, User } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -21,8 +21,8 @@ const BottomNavigation = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 flex justify-center pb-5 z-50 pointer-events-none">
-      <nav className="glass-nav rounded-2xl px-2 py-1 shadow-xl backdrop-blur-xl bg-white/70 border border-white/30 pointer-events-auto">
-        <div className="flex items-center justify-between space-x-1 relative">
+      <nav className="glass-nav rounded-2xl px-3 py-2 shadow-xl backdrop-blur-xl bg-white/70 border border-white/30 pointer-events-auto max-w-md w-full">
+        <div className="flex items-center justify-between relative">
           {navItems.map((item) => {
             const active = isActive(item.route);
             
@@ -30,7 +30,7 @@ const BottomNavigation = () => {
               <Link
                 key={item.route}
                 to={item.route}
-                className="relative flex flex-col items-center justify-center p-3"
+                className="relative flex flex-col items-center justify-center py-1 px-2"
               >
                 <div className="relative">
                   {/* Background indicator for active item */}
@@ -46,8 +46,8 @@ const BottomNavigation = () => {
                   )}
                   
                   <div 
-                    className={`relative flex items-center justify-center rounded-full transition-all duration-300 ${
-                      active ? 'text-primary' : 'text-muted-foreground'
+                    className={`relative flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
+                      active ? 'text-primary' : 'text-muted-foreground hover:text-primary/70'
                     }`}
                   >
                     <item.icon 
@@ -82,7 +82,7 @@ const BottomNavigation = () => {
                       initial={{ opacity: 0, y: 5 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 5 }}
-                      className="text-[10px] font-medium text-primary mt-1 absolute -bottom-3"
+                      className="text-[10px] font-medium text-primary mt-1"
                     >
                       {item.label}
                     </motion.span>

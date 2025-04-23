@@ -25,7 +25,7 @@ const NAV_ITEMS = [
 export function AppSidebar() {
   const location = useLocation();
   return (
-    <Sidebar>
+    <Sidebar side="right">
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Navigate</SidebarGroupLabel>
@@ -51,4 +51,3 @@ export function AppSidebar() {
     </Sidebar>
   );
 }
-

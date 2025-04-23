@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Shield, Bell, Search, ChevronDown, Menu } from 'lucide-react';
+import { Shield, Bell, Search, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu,
@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const Header = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -74,9 +75,13 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
           
-          <Button variant="ghost" size="icon" className="rounded-full bg-primary text-white hover:bg-primary/90 ml-2">
-            <Menu className="h-4 w-4" />
-          </Button>
+          {/* Hamburger menu triggers sidebar */}
+          <SidebarTrigger>
+            <Button variant="ghost" size="icon" className="rounded-full bg-primary text-white hover:bg-primary/90 ml-2">
+              <Menu className="h-4 w-4" />
+              <span className="sr-only">Open menu</span>
+            </Button>
+          </SidebarTrigger>
         </div>
       </div>
     </header>
@@ -84,3 +89,4 @@ const Header = () => {
 };
 
 export default Header;
+

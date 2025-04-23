@@ -1,18 +1,28 @@
 
 import React, { useState } from 'react';
-import { Shield, Bell, Search, Menu } from 'lucide-react';
+import { Shield, Bell, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { 
+import { Link, useLocation } from "react-router-dom";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { SidebarTrigger } from "@/components/ui/sidebar";
+
+const NAV_ITEMS = [
+  { name: "Home", path: "/" },
+  { name: "Events", path: "/events" },
+  { name: "Training", path: "/training" },
+  { name: "Forum", path: "/forum" },
+  { name: "Resources", path: "/resources" },
+  { name: "Profile", path: "/profile" },
+];
 
 const Header = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
-  
+  const location = useLocation();
+
   return (
     <header className="fixed top-0 left-0 right-0 glass-nav z-50 px-6 py-4">
       <div className="flex items-center justify-between">
@@ -22,7 +32,22 @@ const Header = () => {
           </div>
           <h1 className="text-xl font-bold gradient-text">SURAKSHA</h1>
         </div>
-        
+        {/* Navigation links in the center for desktop, drawer for mobile */}
+        <nav className="hidden md:flex space-x-2 mx-8">
+          {NAV_ITEMS.map(item => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className={`px-3 py-2 rounded-md font-medium text-sm transition-all ${
+                location.pathname === item.path
+                  ? 'bg-primary text-white'
+                  : 'text-muted-foreground hover:bg-muted'
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
         <div className="flex items-center space-x-3">
           {isSearchActive ? (
             <div className="relative animate-fade-in">
@@ -45,7 +70,6 @@ const Header = () => {
               <Search className="h-4 w-4 text-muted-foreground" />
             </Button>
           )}
-          
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="rounded-full bg-muted/80 hover:bg-muted relative">
@@ -74,19 +98,26 @@ const Header = () => {
               </div>
             </DropdownMenuContent>
           </DropdownMenu>
-          
-          {/* Hamburger menu triggers sidebar */}
-          <SidebarTrigger>
-            <Button variant="ghost" size="icon" className="rounded-full bg-primary text-white hover:bg-primary/90 ml-2">
-              <Menu className="h-4 w-4" />
-              <span className="sr-only">Open menu</span>
-            </Button>
-          </SidebarTrigger>
         </div>
       </div>
+      {/* Mobile navigation: show as horizontal scrollable bar under the header */}
+      <nav className="flex md:hidden justify-center mt-4 space-x-2 overflow-x-auto pb-1">
+        {NAV_ITEMS.map(item => (
+          <Link
+            key={item.name}
+            to={item.path}
+            className={`px-3 py-2 rounded-md font-medium text-sm transition-all ${
+              location.pathname === item.path
+                ? 'bg-primary text-white'
+                : 'text-muted-foreground hover:bg-muted'
+            }`}
+          >
+            {item.name}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 };
 
 export default Header;
-

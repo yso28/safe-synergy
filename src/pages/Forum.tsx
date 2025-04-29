@@ -1,11 +1,11 @@
-
 import React from 'react';
-import { MessageSquare, ThumbsUp, MessageCircle, User, Plus } from 'lucide-react';
+import { MessageSquare, ThumbsUp, MessageCircle, User } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
+import NewTopicDialog from '@/components/NewTopicDialog';
 
 const Forum = () => {
   const discussions = [
@@ -86,9 +86,7 @@ const Forum = () => {
     <div className="container px-4 pb-20 pt-20">
       <div className="flex justify-between items-center mb-4">
         <h1 className="section-title">Community Forum</h1>
-        <Button size="sm" className="flex items-center gap-1">
-          <Plus className="h-4 w-4" /> New Topic
-        </Button>
+        <NewTopicDialog />
       </div>
       
       <Tabs defaultValue="recent">

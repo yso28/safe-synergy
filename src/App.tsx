@@ -18,10 +18,10 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+    <BrowserRouter>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
         <div className="min-h-screen flex w-full bg-background pb-4">
           <div className="flex-1 flex flex-col min-h-screen">
             <Header />
@@ -40,8 +40,8 @@ const App = () => (
             </div>
           </div>
         </div>
-      </BrowserRouter>
-    </TooltipProvider>
+      </TooltipProvider>
+    </BrowserRouter>
   </QueryClientProvider>
 );
 

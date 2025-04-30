@@ -124,7 +124,7 @@ const Home = () => {
         <p className="text-sm text-gray-700 mb-3 line-clamp-2">
           Learn the fundamentals of ethical hacking and penetration testing techniques.
         </p>
-        <Button size="sm" className="w-full justify-center bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white">
+        <Button size="sm" className="justify-center bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white">
           Register Now
         </Button>
       </div>

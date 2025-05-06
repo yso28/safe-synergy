@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
+import Logo from '@/lib/logo.png';
 
 const NAV_ITEMS = [
   { name: "Home", path: "/" },
@@ -27,9 +28,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 glass-nav z-50 px-6 py-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <div className="bg-gradient-to-br from-primary to-accent rounded-lg p-1.5 mr-3 shadow-md">
-            <Shield className="h-5 w-5 text-white" />
-          </div>
+          <img src={Logo} alt="Logo" className="h-8 w-8 rounded-full m-3 shadow-md" />
           <h1 className="text-xl font-bold gradient-text">SURAKSHA</h1>
         </div>
         {/* Navigation links in the center for desktop, drawer for mobile */}

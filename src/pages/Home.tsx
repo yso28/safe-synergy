@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import Logo from '@/lib/logo.png'
 
 const Home = () => {
   const sections = [
@@ -55,11 +56,12 @@ const Home = () => {
   };
 
   return (
-    <div className="container px-4 pb-24 pt-24">
+    <div className="container px-4 pb-24">
       <div className="mb-8 glass-card p-6 rounded-3xl shadow-lg">
         <div className="mb-6 flex justify-center">
           <div className="bg-gradient-to-r from-primary to-accent p-3 rounded-2xl shadow-md">
-            <Shield className="h-10 w-10 text-white" />
+            {/* <Logo /> */}
+            <img src={Logo} alt="Logo" className="h-16 w-16 rounded-full" />
           </div>
         </div>
         
@@ -69,22 +71,6 @@ const Home = () => {
         <p className="text-gray-500 text-center mb-6 text-sm">
           Student Association for Cyber Security and Crime Awareness
         </p>
-        
-        <div className="bg-muted/50 backdrop-blur-sm rounded-xl p-4 flex items-center relative floating-card">
-          <div className="absolute -top-2 -right-2">
-            <Badge className="bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 text-white border-none text-[10px]">
-              Active
-            </Badge>
-          </div>
-          <div className="bg-accent/10 p-2.5 rounded-lg mr-3 shadow-sm">
-            <Shield className="h-5 w-5 text-accent" />
-          </div>
-          <div className="flex-1">
-            <h3 className="text-sm font-medium">Security Status</h3>
-            <p className="text-xs text-muted-foreground">Your account is fully protected</p>
-          </div>
-          <div className="bg-gradient-to-r from-green-400 to-emerald-500 h-2.5 w-2.5 rounded-full pulsate"></div>
-        </div>
       </div>
       
       <div className="flex justify-between items-center mb-4">

@@ -31,6 +31,15 @@ const Resources = () => {
       link: "https://www.cisco.com/c/en/us/products/security/secure-access/phishing-for-dummies.html?utm_medium=search-paid&utm_source=g+google&utm_campaign=CSA_APJC_IN_EN_GS_Nonbrand_Threats_T1&utm_content=CSA-CONT-COX-FY24-Q1-Content-Ebook-Phishing-for-Dummies-2023-ABX&utm_term=how%20to%20spot%20a%20phishing%20email&utm_matchtype=p&utm_device=c&_bt=717467644243&_bk=how%20to%20spot%20a%20phishing%20email&_bm=p&_bn=g&_bg=166647662303&gad_source=1&gbraid=0AAAAA-OrpYqiXMU7WK0lz3nNkAKCpcgqQ&gclid=Cj0KCQjw8cHABhC-ARIsAJnY12zZvXa8zeyiz0bHgokDp1UvpA8_ZeZ0BWeHWpFqqfYRA_yvprhuufgaAuz4EALw_wcB"
     },
     {
+      id: 3,
+      title: 'Essential Cybersecurity Tools for Students',
+      description: 'Tools and techniques that are used to defend networks, systems and data against cyberattacks',
+      type: 'tool',
+      source: 'Cyber Security Center',
+      category: 'Hackathon',
+      link: "https://www.devry.edu/blog/cyber-security-tools-and-techniques.html"
+    },
+    {
       id: 4,
       title: 'Password Management Best Practices',
       description: 'Guidelines for creating and managing secure passwords',
